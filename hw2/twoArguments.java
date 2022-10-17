@@ -7,6 +7,6 @@ public class twoArguments {
 
         double midArithmetic =(arguOne+arguTwo)/2;
 
-        System.out.println(midArithmetic);
+        System.out.println("Среднее арифметическое двух чисел: "+midArithmetic);
     }
 }
