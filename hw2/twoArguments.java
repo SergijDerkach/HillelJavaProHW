@@ -1,5 +1,4 @@
 package hw2;
-
 public class twoArguments {
     public static void main(String[] args) {
         double arguOne = 4.5d;
