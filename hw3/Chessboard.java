@@ -1,6 +1,6 @@
 package hw3;
 
-public class chessboard {
+public class Chessboard {
     public static void main(String[] args) {
         String [][] board = new String[8][8];
         String white = "W";

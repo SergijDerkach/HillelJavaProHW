@@ -1,6 +1,6 @@
 package hw3;
 
-public class factorialNumberDoWhile {
+public class FactorialNumberDoWhile {
     public static void main(String[] args) {
         int n = 5;
         int result = 1;

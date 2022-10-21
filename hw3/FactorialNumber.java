@@ -1,6 +1,6 @@
 package hw3;
 
-public class factorialNumber {
+public class FactorialNumber {
     public static void main(String[] args) {
         int n = 5;
         int result = 1;

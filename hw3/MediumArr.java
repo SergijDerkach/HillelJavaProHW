@@ -1,6 +1,6 @@
 package hw3;
 
-public class mediumArr {
+public class MediumArr {
     public static void main(String[] args) {
         int nums[] = {2,5,-9,4,2,6,7};
         double result = 0d;

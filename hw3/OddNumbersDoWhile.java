@@ -1,6 +1,6 @@
 package hw3;
 
-public class oddNumbersDoWhile {
+public class OddNumbersDoWhile {
     public static void main(String[] args) {
         int n = 0;
         do{

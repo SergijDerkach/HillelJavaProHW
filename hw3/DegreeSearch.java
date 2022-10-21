@@ -1,6 +1,6 @@
 package hw3;
 
-public class degreeSearch {
+public class DegreeSearch {
     public static void main(String[] args) {
         int x = 5;
         int n = 3;

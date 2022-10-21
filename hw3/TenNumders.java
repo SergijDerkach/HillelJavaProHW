@@ -1,6 +1,6 @@
 package hw3;
 
-public class tenNumders {
+public class TenNumders {
     public static void main(String[] args) {
         int [] tenNums = {1,3,5,7,9,11,13,15,17,19};
         int count = 1;

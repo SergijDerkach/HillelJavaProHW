@@ -1,6 +1,6 @@
 package hw3;
 
-public class negativeSequence {
+public class NegativeSequence {
     public static void main(String[] args) {
         int res = 0;
 

@@ -1,6 +1,6 @@
 package hw3;
 
-public class replaceNums {
+public class ReplaceNums {
     public static void main(String[] args) {
         int numbers[] = {4,-2,0,6,5};
         int min = 0;
