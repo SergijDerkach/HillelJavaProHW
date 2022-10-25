@@ -50,16 +50,15 @@ public class TripByCar {
         }else
             System.out.println("Необходимо дозаправить минимум - " + Math.abs(enoughFuel));
     }
-    double fillUpFullTank(double tank){
+    public double fillUpFullTank(double tank){
         return tank;
     }
 
-    double nowBake(double balance, double dist, double fuelConsumption){
-
+    public double nowBake(double balance, double dist, double fuelConsumption){
         return balance - ((dist/100)*fuelConsumption);
     }
 
-    double needFuel(double distance,double fuelConsumption){
+    public double needFuel(double distance,double fuelConsumption){
         return Math.abs((distance/100)*fuelConsumption);
     }
 }
