@@ -24,11 +24,12 @@ public class StudentRun extends Student {
         studentList[9] = new StudentRun("10", "Ivan", "Mazur", "380958652511", 1993, "1", "FET", "E-101");
 
         String searchNameFaculty = "FET";
+        StudentServise studentServise = new StudentServise();
 
         for (int i = 0; i < studentList.length; i++) {
             String studNameFaculty = studentList[i].getFaculty();
             boolean found = false;
-            found = showStudFaculty(searchNameFaculty, studNameFaculty);
+            found = studentServise.showStudFaculty(searchNameFaculty, studNameFaculty);
 
             if (found) {
                 System.out.println(studentList[i].toString());
@@ -44,7 +45,7 @@ public class StudentRun extends Student {
             String studNumCourse = studentList[i].getCourse();
             boolean found = false;
 
-            found = showStudFacultyCourse(searchNameFaculty, searchNumCourse, studNameFaculty, studNumCourse);
+            found = studentServise.showStudFacultyCourse(searchNameFaculty, searchNumCourse, studNameFaculty, studNumCourse);
             if (found) {
                 System.out.println(studentList[i].toString());
             }
@@ -56,7 +57,7 @@ public class StudentRun extends Student {
             int studYearOfBirth =studentList[i].getYearOfBirth();
             boolean found = false;
 
-            found = showStudAfterYearOfBirth(searchYearOfBirth,studYearOfBirth);
+            found = studentServise.showStudAfterYearOfBirth(searchYearOfBirth,studYearOfBirth);
             if (found) {
                 System.out.println(studentList[i].toString());
             }
@@ -68,7 +69,7 @@ public class StudentRun extends Student {
             String studListGroup =studentList[i].getGroup();
             boolean found = false;
 
-            found = showListGroup(studListGroup,searchListGroup);
+            found = studentServise.showListGroup(studListGroup,searchListGroup);
             if (found) {
                 System.out.println(studentList[i].toString());
             }
@@ -76,36 +77,35 @@ public class StudentRun extends Student {
 
     }
 
-
-    static boolean showStudFaculty(String searchNameFaculty, String stNameFacult) {
-        if (searchNameFaculty == stNameFacult) {
-            return true;
-        } else
-            return false;
-    }
-
-    static boolean showStudFacultyCourse(String sNameFaculty, String sNumCourse, String stNameFacult, String stNameFacultCourse) {
-
-        if (sNameFaculty == stNameFacult && sNumCourse == stNameFacultCourse) {
-            return true;
-        } else
-            return false;
-    }
-
-    static boolean showStudAfterYearOfBirth(int searchYearOfBirth,int studYearOfBirth){
-
-            if(searchYearOfBirth < studYearOfBirth ){
-                return true;
-            }else
-                return false;
-        }
-
-    static boolean showListGroup(String sNameGroup, String searchListGroup) {
-        if (searchListGroup == sNameGroup) {
-            return true;
-        } else
-            return false;
-    }
+//    static boolean showStudFaculty(String searchNameFaculty, String stNameFacult) {
+//        if (searchNameFaculty == stNameFacult) {
+//            return true;
+//        } else
+//            return false;
+//    }
+//
+//    static boolean showStudFacultyCourse(String sNameFaculty, String sNumCourse, String stNameFacult, String stNameFacultCourse) {
+//
+//        if (sNameFaculty == stNameFacult && sNumCourse == stNameFacultCourse) {
+//            return true;
+//        } else
+//            return false;
+//    }
+//
+//    static boolean showStudAfterYearOfBirth(int searchYearOfBirth,int studYearOfBirth){
+//
+//            if(searchYearOfBirth < studYearOfBirth ){
+//                return true;
+//            }else
+//                return false;
+//        }
+//
+//    static boolean showListGroup(String sNameGroup, String searchListGroup) {
+//        if (searchListGroup == sNameGroup) {
+//            return true;
+//        } else
+//            return false;
+//    }
 }
 
 
