@@ -8,10 +8,24 @@ public class Subscriber {
     private String city;
     private String phoneNumber;
     private String contractNumber;
-    private int balanc;
+    private double balanc;
     private double cityTimeMin;
     private double longDistanceCallsMin;
     private double internetTrafficGb;
+
+    public Subscriber(String id, String name, String surname, String patronymic, String city, String phoneNumber, String contractNumber, double balanc, double cityTimeMin, double longDistanceCallsMin, double internetTrafficGb) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+        this.contractNumber = contractNumber;
+        this.balanc = balanc;
+        this.cityTimeMin = cityTimeMin;
+        this.longDistanceCallsMin = longDistanceCallsMin;
+        this.internetTrafficGb = internetTrafficGb;
+    }
 
     public String getId() {
         return id;
@@ -69,11 +83,11 @@ public class Subscriber {
         this.contractNumber = contractNumber;
     }
 
-    public int getBalanc() {
+    public double getBalanc() {
         return balanc;
     }
 
-    public void setBalanc(int balanc) {
+    public void setBalanc(double balanc) {
         this.balanc = balanc;
     }
 
@@ -100,6 +114,20 @@ public class Subscriber {
     public void setInternetTrafficGb(double internetTrafficGb) {
         this.internetTrafficGb = internetTrafficGb;
     }
+    public void Subs (String id, String name, String surname, String patronymic, String city, String phoneNumber, String contractNumber, double balanc, double cityTimeMin, double longDistanceCallsMin, double internetTrafficGb) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+        this.contractNumber = contractNumber;
+        this.balanc = balanc;
+        this.cityTimeMin = cityTimeMin;
+        this.longDistanceCallsMin = longDistanceCallsMin;
+        this.internetTrafficGb =internetTrafficGb;
+    }
+
 
     @Override
     public String toString() {
