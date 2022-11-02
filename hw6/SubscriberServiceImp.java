@@ -27,29 +27,29 @@ public class SubscriberServiceImp extends Subscriber{
             double subslimit = subsList[i].getCityTimeMin();
             subsSerImp.infoAboutSub(limCityTimeMin,subslimit,subsList[i]);
         }
-
         System.out.println("----------------------------------------------");
 
         for (int i = 0; i<subsList.length; i++){
             double longDistanceCallsMin = subsList[i].getLongDistanceCallsMin();
             subsSerImp.infoSubsUselongDistanceCall(longDistanceCallsMin,subsList[i]);
         }
-
         System.out.println("----------------------------------------------");
+
         String firtsLett = "i";
         for (int i = 0; i<subsList.length; i++){
             String subsName = subsList[i].getName();
             String subsSurname = subsList[i].getSurname();
             String subsPatronymic = subsList[i].getPatronymic();
             double subsBalance = subsList[i].getBalanc();
-
             subsSerImp.searcSubsFirstLetter(firtsLett,subsName,subsSurname,subsPatronymic,subsBalance);
         }
         System.out.println("----------------------------------------------");
-          String searchCity = "Dnepr";
+
+        String searchCity = "Dnepr";
           double sumTraffic = 0.0d;
           subsSerImp.sumTrafficCity(subsList,searchCity,sumTraffic);
         System.out.println("----------------------------------------------");
+
 
         subsSerImp.listSubsNegativeBal(subsList);
           System.out.println("----------------------------------------------");
