@@ -43,24 +43,24 @@ public class Subscriber {
         subsList[9] = new Subscriber("10", "Ivan", "Mazur", "Ivanovach", "Zaporizhzhya", "380958652511", "cr-0012811", 1.5d, 0.33d, 53.02d, 1.9d);
 
 
-        for (int i = 0; i<subsList.length; i++){
-            double subslimit = subsList[i].getCityTimeMin();
-            subsSerImp.infoAboutSub(limCityTimeMin,subslimit,subsList[i]);
+        for(Subscriber sb: subsList){
+            double subslimit = sb.getCityTimeMin();
+            subsSerImp.infoAboutSub(limCityTimeMin,subslimit,sb);
         }
         System.out.println("----------------------------------------------");
 
-        for (int i = 0; i<subsList.length; i++){
-            double longDistanceCallsMin = subsList[i].getLongDistanceCallsMin();
-            subsSerImp.infoSubsUselongDistanceCall(longDistanceCallsMin,subsList[i]);
+        for (Subscriber sb: subsList){
+            double longDistanceCallsMin = sb.getLongDistanceCallsMin();
+            subsSerImp.infoSubsUselongDistanceCall(longDistanceCallsMin,sb);
         }
         System.out.println("----------------------------------------------");
 
         String firtsLett = "i";
-        for (int i = 0; i<subsList.length; i++){
-            String subsName = subsList[i].getName();
-            String subsSurname = subsList[i].getSurname();
-            String subsPatronymic = subsList[i].getPatronymic();
-            double subsBalance = subsList[i].getBalanc();
+        for (Subscriber sb: subsList){
+            String subsName = sb.getName();
+            String subsSurname = sb.getSurname();
+            String subsPatronymic = sb.getPatronymic();
+            double subsBalance = sb.getBalanc();
             subsSerImp.searcSubsFirstLetter(firtsLett,subsName,subsSurname,subsPatronymic,subsBalance);
         }
         System.out.println("----------------------------------------------");
