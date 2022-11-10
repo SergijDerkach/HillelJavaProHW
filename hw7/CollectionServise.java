@@ -5,7 +5,7 @@ public class CollectionServise extends dCollection {
 
             dCollection c = new dCollection();
 
-            c.add(0,"0");
+            c.add(0,"1");
             c.add("1");
             c.add(1,"2");
             c.add(3,"3");

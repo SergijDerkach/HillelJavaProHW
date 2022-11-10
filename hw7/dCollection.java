@@ -1,7 +1,6 @@
 package hw7;
 
-import java.util.Collection;
-import java.util.Collections;
+import java.util.Arrays;
 
 public class dCollection {
     public String [] coll;
@@ -84,5 +83,18 @@ public class dCollection {
     }
     public int getSize(){
         return size;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        dCollection that = (dCollection) o;
+        return Arrays.equals(coll, that.coll);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(coll);
     }
 }
