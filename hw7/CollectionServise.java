@@ -1,9 +1,9 @@
 package hw7;
 
-public class CollectionServise extends dCollection {
+public class CollectionServise extends Collection {
         public static void main(String[] args) {
 
-            dCollection c = new dCollection();
+            Collection c = new Collection();
 
             c.add(0,"1");
             c.add("1");

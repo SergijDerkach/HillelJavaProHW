@@ -1,14 +1,15 @@
 package hw7;
 
 import java.util.Arrays;
+import java.util.Objects;
 
-public class dCollection {
+public class Collection {
     public String [] coll;
     private int count = 0;
     private final int  defSize = 5;
     private int size;
 
-    public dCollection(){
+    public Collection(){
         this.coll = new String [defSize];
         this.size = size;
     }
@@ -85,16 +86,5 @@ public class dCollection {
         return size;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        dCollection that = (dCollection) o;
-        return Arrays.equals(coll, that.coll);
-    }
 
-    @Override
-    public int hashCode() {
-        return Arrays.hashCode(coll);
-    }
 }

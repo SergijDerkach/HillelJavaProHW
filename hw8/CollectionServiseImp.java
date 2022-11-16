@@ -1,7 +1,5 @@
 package hw8;
 
-import hw7.Collection;
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -10,7 +8,7 @@ public class CollectionServiseImp implements CollectionServise{
     private int defSize = 10;
     private int size =0;
 
-    CollectionServiseImp(){
+    public CollectionServiseImp(){
         strs = new String[defSize];
     }
 
@@ -124,5 +122,9 @@ public class CollectionServiseImp implements CollectionServise{
         int result = Objects.hash(defSize, size);
         result = 31 * result + Arrays.hashCode(strs);
         return result;
+    }
+
+    public String [] getStrs(){
+        return strs;
     }
 }
