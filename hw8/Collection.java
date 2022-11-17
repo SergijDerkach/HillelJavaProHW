@@ -28,5 +28,6 @@ public class Collection {
         System.out.println(coll.clear());
         System.out.println(coll.size());
         coll.displayColl();
+
     }
 }
