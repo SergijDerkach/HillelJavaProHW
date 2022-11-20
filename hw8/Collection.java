@@ -25,9 +25,15 @@ public class Collection {
 
         System.out.println(coll.contains("2"));
         System.out.println(coll.get(2).equals("2"));
+
+        DerIterator iterator = new DerIterator(coll.getStrs());
+        iterator.go();
+        System.out.println("---");
+
         System.out.println(coll.clear());
         System.out.println(coll.size());
         coll.displayColl();
+
 
     }
 }

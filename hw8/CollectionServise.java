@@ -14,4 +14,5 @@ public interface CollectionServise {
 
     boolean equals(Object o);
     int hashCode();
+
 }

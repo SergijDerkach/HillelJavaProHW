@@ -1,9 +1,10 @@
 package hw8;
 
 import java.util.Arrays;
+
 import java.util.Objects;
 
-public class CollectionServiseImp implements CollectionServise {
+public class CollectionServiseImp implements CollectionServise{
     private String [] strs;
     private int defSize = 10;
     private int size =0;
