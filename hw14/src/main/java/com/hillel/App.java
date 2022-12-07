@@ -1,13 +1,12 @@
 package com.hillel;
 
-
 import java.util.*;
 
 import static java.util.stream.Collectors.toCollection;
 
-
 public class App{
     public static void main( String[] args ){
+        Count count = new Count();
         Scanner question = new Scanner(System.in);
         System.out.println("Input values: ");
         String tnum = question.nextLine();
@@ -15,23 +14,38 @@ public class App{
         String[] vals = tnum.split("");
         Collection<Integer> nums;
 
-        nums = Arrays.stream(vals).map(App::apply).filter(v->v!=-0).collect(toCollection(ArrayList::new));
+        nums = Arrays.stream(vals).map(App::apply).filter(v->v!=-1).collect(toCollection(ArrayList::new));
 
-        nums.stream().map(n->arrayNum(n)).forEach(n->showArray(n));
+        String[][] arrays = new String[7][nums.size()*4];
+
+        nums.stream().map(n -> arrayNum(n)).map(a->{
+
+            for (int i = 0; i < a.length; i++){
+                for(int j = 0; j < a[i].length; j++) {
+                    arrays[i][j+count.getCount()] = a[i][j];
+                }
+            }
+
+            count.setCount(count.getCount());
+            return arrays;
+        }).collect(toCollection(ArrayList::new)).stream().limit(1).forEach(n->showArray(n));
+
     }
+
+
 
     static private String[][] arrayNum(int num){
         String[][] vNum = new String[7][4];
         switch (num){
             case 0:
                 vNum = new String[][]{
-                        {" ", "@", "@", " "},
-                        {"@", " ", " ", "@"},
-                        {"@", " ", " ", "@"},
-                        {"@", " ", " ", "@"},
-                        {"@", " ", " ", "@"},
-                        {"@", " ", " ", "@"},
-                        {" ", "@", "@", " "}
+                        {" ", " ", "@", " "},
+                        {" ", "@", " ", "@"},
+                        {" ", "@", " ", "@"},
+                        {" ", "@", " ", "@"},
+                        {" ", "@", " ", "@"},
+                        {" ", "@", " ", "@"},
+                        {" ", " ", "@", " "}
                 };
                 break;
             case 1:
@@ -113,21 +127,21 @@ public class App{
                 break;
             case 8:
                 vNum = new String[][]{
-                        {" ", "@", "@", " "},
-                        {"@", " ", " ", "@"},
-                        {"@", " ", " ", "@"},
-                        {" ", "@", "@", " "},
-                        {"@", " ", " ", "@"},
-                        {"@", " ", " ", "@"},
-                        {" ", "@", "@", " "}
+                        {" ", " ", "@", " "},
+                        {" ", "@", " ", "@"},
+                        {" ", "@", " ", "@"},
+                        {" ", " ", "@", " "},
+                        {" ", "@", " ", "@"},
+                        {" ", "@", " ", "@"},
+                        {" ", " ", "@", " "}
                 };
                 break;
             case 9:
                 vNum = new String[][]{
-                        {" ", "@", "@", " "},
-                        {"@", " ", " ", "@"},
-                        {"@", " ", " ", "@"},
-                        {" ", "@", "@", "@"},
+                        {" ", " ", "@", " "},
+                        {" ", "@", " ", "@"},
+                        {" ", "@", " ", "@"},
+                        {" ", " ", "@", "@"},
                         {" ", " ", " ", "@"},
                         {" ", " ", " ", "@"},
                         {" ", "@", "@", " "}
@@ -143,23 +157,18 @@ public class App{
             for(int j=0; j < arr[i].length; j++){
                 System.out.print(" " + arr[i][j]);
             }
-            System.out.println();
+            System.out.println("");
         }
     }
 
-    private static Integer apply(String str) {
+    static private Integer apply(String str) {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e) {
 
         }
-        return -0;
+        return -1;
     }
 
-    private static String[][] concatArray(String[][] arr, String[][] arrNums){
-        for(int i=0;i<arr.length;i++){
-
-        }
-        return arrNums;
-    }
 }
+
