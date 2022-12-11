@@ -28,6 +28,8 @@ public class StartGame {
         String name = scan.nextLine();
         System.out.println("Enter number of games ...");
         int numberOfGames = scan.nextInt();
+        int playingGame = 0;
+        int countGame;
         String cont = "y";
         scan.nextLine();
 
@@ -36,6 +38,7 @@ public class StartGame {
 
         do {
             numberOfGames--;
+            playingGame++;
             System.out.println("Enter Rock(R)/Paper(P)/Scissors(S) ...");
             String plInputVal = scan.nextLine();
 
@@ -59,7 +62,11 @@ public class StartGame {
 
         }while (cont.toLowerCase().equals("y"));
 
-        System.out.println("Count game: "+player.getNumOfGame()+", "+
+        if(!cont.equals("y")){
+          countGame = playingGame;
+        }else countGame = player.getNumOfGame();
+
+        System.out.println("Count game: "+countGame+", "+
                 player.getName() +" wins: " + player.getNumOfWinGame() + ", "
                 +player.getName() +" lose: " + player.getNumOfLosGame());
     }
