@@ -1,15 +1,13 @@
 package hillel.com;
 
-import java.io.*;
 import Service.ComputerServImp;
 import Service.MatrixServImp;
 import Service.PlayerServiceImp;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class StartGame {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String [][] matrix = {
                 {"d","l","w"},
                 {"l","d","w"},
@@ -30,8 +28,6 @@ public class StartGame {
         String name = scan.nextLine();
         System.out.println("Enter number of games ...");
         int numberOfGames = scan.nextInt();
-        int playingGame = 0;
-        int countGame;
         String cont = "y";
         scan.nextLine();
 
@@ -40,7 +36,6 @@ public class StartGame {
 
         do {
             numberOfGames--;
-            playingGame++;
             System.out.println("Enter Rock(R)/Paper(P)/Scissors(S) ...");
             String plInputVal = scan.nextLine();
 
@@ -64,39 +59,8 @@ public class StartGame {
 
         }while (cont.toLowerCase().equals("y"));
 
-        if(!cont.equals("y")){
-          countGame = playingGame;
-        }else countGame = player.getNumOfGame();
-
-        String resGamePl = "Count game: "+countGame+", "+
+        System.out.println("Count game: "+player.getNumOfGame()+", "+
                 player.getName() +" wins: " + player.getNumOfWinGame() + ", "
-                +player.getName() +" lose: " + player.getNumOfLosGame();
-
-        System.out.println(resGamePl);
-
-        File nameResultFile = new File("resultGame.txt");
-        String absPathToFile = nameResultFile.getAbsolutePath();
-
-        boolean isFile = false;
-
-        if(!nameResultFile.exists()){
-            try {
-                isFile = nameResultFile.createNewFile();
-                if (isFile){
-
-                    OutputStream outputStream = new FileOutputStream(absPathToFile);
-                    outputStream.write(resGamePl.getBytes(StandardCharsets.UTF_8));
-                    outputStream.write(" \n".getBytes(StandardCharsets.UTF_8));
-                    outputStream.close();
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }else {
-            OutputStream outputStream = new FileOutputStream(absPathToFile,true);
-            outputStream.write(resGamePl.getBytes(StandardCharsets.UTF_8));
-            outputStream.write(" \n".getBytes(StandardCharsets.UTF_8));
-            outputStream.close();
-        }
+                +player.getName() +" lose: " + player.getNumOfLosGame());
     }
 }
