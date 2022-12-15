@@ -65,15 +65,14 @@ public class StartGame {
         }while (cont.toLowerCase().equals("y"));
 
         if(!cont.equals("y")){
-          countGame = playingGame;
+            countGame = playingGame;
         }else countGame = player.getNumOfGame();
 
         String resGamePl = "Count game: "+countGame+", "+
                 player.getName() +" wins: " + player.getNumOfWinGame() + ", "
                 +player.getName() +" lose: " + player.getNumOfLosGame();
-        System.out.println(resGamePl);
 
-        //--------------------------------
+        System.out.println(resGamePl);
 
         File nameResultFile = new File("resultGame.txt");
         String absPathToFile = nameResultFile.getAbsolutePath();
@@ -93,7 +92,6 @@ public class StartGame {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
         }else {
             OutputStream outputStream = new FileOutputStream(absPathToFile,true);
             outputStream.write(resGamePl.getBytes(StandardCharsets.UTF_8));
