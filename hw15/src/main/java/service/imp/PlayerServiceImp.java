@@ -1,8 +1,8 @@
-package Service;
+package service.imp;
 
-import hillel.com.Player;
+import service.interf.PlayerService;
 
-public class PlayerServiceImp implements PlayerService{
+public class PlayerServiceImp implements PlayerService {
 
     @Override
     public Integer retNumb(String val) {

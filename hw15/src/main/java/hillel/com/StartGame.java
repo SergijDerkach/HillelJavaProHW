@@ -1,11 +1,11 @@
 package hillel.com;
 
 import java.io.*;
-import Service.ComputerServImp;
-import Service.MatrixServImp;
-import Service.PlayerServiceImp;
+import service.imp.ComputerServImp;
+import service.imp.MatrixServImp;
+import service.imp.PlayerServiceImp;
+import service.imp.StartGameImp;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class StartGame {
@@ -23,13 +23,23 @@ public class StartGame {
 
         Computer comp = new Computer();
         ComputerServImp compServ = new ComputerServImp();
-
+        StartGameImp sGame = new StartGameImp();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Enter your name ...");
+        sGame.writingToFile("Start game!");
+        //-----
+        String question1 = "Enter your name ...";
+        System.out.println(question1);
+        sGame.writingToFile(question1);
         String name = scan.nextLine();
-        System.out.println("Enter number of games ...");
+        sGame.writingToFile(name);
+        //-----
+        String question2 = "Enter number of games ...";
+        System.out.println(question2);
+        sGame.writingToFile(question2);
         int numberOfGames = scan.nextInt();
+        sGame.writingToFile(String.valueOf(numberOfGames));
+        //-----
         int playingGame = 0;
         int countGame;
         String cont = "y";
@@ -41,25 +51,35 @@ public class StartGame {
         do {
             numberOfGames--;
             playingGame++;
-            System.out.println("Enter Rock(R)/Paper(P)/Scissors(S) ...");
+            String question3 ="Enter Rock(R)/Paper(P)/Scissors(S) ...";
+            System.out.println(question3);
+            sGame.writingToFile(question3);
             String plInputVal = scan.nextLine();
-
+            sGame.writingToFile(plInputVal);
+            //-----
             int plNum = pl.retNumb(plInputVal.toUpperCase());
             int compNum = compServ.generateNumb();
 
-            if(matServ.getValue(plNum, compNum,matrix).equals("d")){
+            //----
+            String valueG = matServ.getValue(plNum, compNum,matrix);
+
+            if(valueG.equals("d")){
                 player.setNumOfLosGame(player.getNumOfLosGame());
-            } else if ((matServ.getValue(plNum, compNum,matrix).equals("l"))){
+            } else if ((valueG.equals("l"))){
                 player.setNumOfLosGame(player.getNumOfLosGame());
-            } else if ((matServ.getValue(plNum, compNum,matrix).equals("w"))){
+            } else if ((valueG.equals("w"))){
                 player.setNumOfWinGame(player.getNumOfWinGame());
             }
 
             if(numberOfGames == 0){
                 cont = "n";
             }else {
-                System.out.println("Continue game(Y/N) ...");
+                String question4 ="Continue game(Y/N) ...";
+                System.out.println(question4);
+                sGame.writingToFile(question4);
+
                 cont = scan.nextLine();
+                sGame.writingToFile(cont);
             }
 
         }while (cont.toLowerCase().equals("y"));
@@ -73,30 +93,7 @@ public class StartGame {
                 +player.getName() +" lose: " + player.getNumOfLosGame();
 
         System.out.println(resGamePl);
-
-        File nameResultFile = new File("resultGame.txt");
-        String absPathToFile = nameResultFile.getAbsolutePath();
-
-        boolean isFile = false;
-
-        if(!nameResultFile.exists()){
-            try {
-                isFile = nameResultFile.createNewFile();
-                if (isFile){
-
-                    OutputStream outputStream = new FileOutputStream(absPathToFile);
-                    outputStream.write(resGamePl.getBytes(StandardCharsets.UTF_8));
-                    outputStream.write(" \n".getBytes(StandardCharsets.UTF_8));
-                    outputStream.close();
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }else {
-            OutputStream outputStream = new FileOutputStream(absPathToFile,true);
-            outputStream.write(resGamePl.getBytes(StandardCharsets.UTF_8));
-            outputStream.write(" \n".getBytes(StandardCharsets.UTF_8));
-            outputStream.close();
-        }
+        sGame.writingToFile(resGamePl);
+        sGame.writingToFile("------- End game -------");
     }
 }

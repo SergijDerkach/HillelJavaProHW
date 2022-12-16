@@ -1,6 +1,8 @@
-package Service;
+package service.imp;
 
-public class MatrixServImp implements MatrixServ{
+import service.interf.MatrixServ;
+
+public class MatrixServImp implements MatrixServ {
         @Override
     public String getValue(int pl, int comp,String [][] m) {
         return m[pl][comp];
