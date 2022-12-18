@@ -1,9 +1,11 @@
-package hw8;
+package com.hillel;
+
+import service.imp.CollectionServiseImp;
+import service.imp.DerIterator;
 
 public class Collection {
     public static void main(String[] args) {
         CollectionServiseImp coll = new CollectionServiseImp();
-
         coll.add("1");
         coll.add("22");
         coll.add(1,"3");
