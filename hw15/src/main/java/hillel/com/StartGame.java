@@ -1,6 +1,10 @@
 package hillel.com;
 
 import java.io.*;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import service.imp.ComputerServImp;
 import service.imp.MatrixServImp;
 import service.imp.PlayerServiceImp;
@@ -9,6 +13,8 @@ import service.imp.StartGameImp;
 import java.util.Scanner;
 
 public class StartGame {
+    private static final Logger logger = LoggerFactory.getLogger("stdout");
+    private static final Logger save = LoggerFactory.getLogger("logger");
     public static void main(String[] args) throws IOException {
         String [][] matrix = {
                 {"d","l","w"},
@@ -26,19 +32,23 @@ public class StartGame {
         StartGameImp sGame = new StartGameImp();
         Scanner scan = new Scanner(System.in);
 
-        sGame.writingToFile("Start game!");
+        logger.info("Start game!");
+        save.info("Start game!");
         //-----
         String question1 = "Enter your name ...";
-        System.out.println(question1);
-        sGame.writingToFile(question1);
+        logger.info(question1);
+        save.info(question1);
+
         String name = scan.nextLine();
-        sGame.writingToFile(name);
+        save.info(name);
+
         //-----
         String question2 = "Enter number of games ...";
-        System.out.println(question2);
-        sGame.writingToFile(question2);
+        logger.info(question2);
+        save.info(question2);
+
         int numberOfGames = scan.nextInt();
-        sGame.writingToFile(String.valueOf(numberOfGames));
+        save.info(String.valueOf(numberOfGames));
         //-----
         int playingGame = 0;
         int countGame;
@@ -52,10 +62,11 @@ public class StartGame {
             numberOfGames--;
             playingGame++;
             String question3 ="Enter Rock(R)/Paper(P)/Scissors(S) ...";
-            System.out.println(question3);
-            sGame.writingToFile(question3);
+            logger.info(question3);
+            save.info(question3);
+
             String plInputVal = scan.nextLine();
-            sGame.writingToFile(plInputVal);
+            save.info(plInputVal);
             //-----
             int plNum = pl.retNumb(plInputVal.toUpperCase());
             int compNum = compServ.generateNumb();
@@ -75,11 +86,11 @@ public class StartGame {
                 cont = "n";
             }else {
                 String question4 ="Continue game(Y/N) ...";
-                System.out.println(question4);
-                sGame.writingToFile(question4);
+                logger.info(question4);
+                save.info(question4);
 
                 cont = scan.nextLine();
-                sGame.writingToFile(cont);
+                save.info(cont);
             }
 
         }while (cont.toLowerCase().equals("y"));
@@ -92,8 +103,9 @@ public class StartGame {
                 player.getName() +" wins: " + player.getNumOfWinGame() + ", "
                 +player.getName() +" lose: " + player.getNumOfLosGame();
 
-        System.out.println(resGamePl);
-        sGame.writingToFile(resGamePl);
-        sGame.writingToFile("------- End game -------");
+        logger.info(resGamePl);
+        save.info(resGamePl);
+        save.info("------- End game -------");
+
     }
 }
