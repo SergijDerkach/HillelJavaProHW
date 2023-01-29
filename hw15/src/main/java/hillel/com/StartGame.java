@@ -1,21 +1,28 @@
 package hillel.com;
-
 import java.io.*;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import service.imp.ComputerServImp;
 import service.imp.MatrixServImp;
 import service.imp.PlayerServiceImp;
 import service.imp.StartGameImp;
-
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class StartGame {
     private static final Logger logger = LoggerFactory.getLogger("stdout");
     private static final Logger save = LoggerFactory.getLogger("logger");
     public static void main(String[] args) throws IOException {
+
+        Locale defLocale = new Locale("ua");
+
+        if(args.length != 0){
+            defLocale = new Locale(args[0]);
+        }
+
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message", defLocale);
+
         String [][] matrix = {
                 {"d","l","w"},
                 {"l","d","w"},
@@ -32,10 +39,10 @@ public class StartGame {
         StartGameImp sGame = new StartGameImp();
         Scanner scan = new Scanner(System.in);
 
-        logger.info("Start game!");
-        save.info("Start game!");
+        logger.info(resourceBundle.getString("startGame"));
+        save.info(resourceBundle.getString("startGame"));
         //-----
-        String question1 = "Enter your name ...";
+        String question1 = resourceBundle.getString("question1");
         logger.info(question1);
         save.info(question1);
 
@@ -43,7 +50,7 @@ public class StartGame {
         save.info(name);
 
         //-----
-        String question2 = "Enter number of games ...";
+        String question2 = resourceBundle.getString("question2");
         logger.info(question2);
         save.info(question2);
 
@@ -61,7 +68,7 @@ public class StartGame {
         do {
             numberOfGames--;
             playingGame++;
-            String question3 ="Enter Rock(R)/Paper(P)/Scissors(S) ...";
+            String question3 = resourceBundle.getString("question3");
             logger.info(question3);
             save.info(question3);
 
@@ -85,7 +92,7 @@ public class StartGame {
             if(numberOfGames == 0){
                 cont = "n";
             }else {
-                String question4 ="Continue game(Y/N) ...";
+                String question4 = resourceBundle.getString("question4");
                 logger.info(question4);
                 save.info(question4);
 
@@ -99,13 +106,17 @@ public class StartGame {
             countGame = playingGame;
         }else countGame = player.getNumOfGame();
 
-        String resGamePl = "Count game: "+countGame+", "+
-                player.getName() +" wins: " + player.getNumOfWinGame() + ", "
-                +player.getName() +" lose: " + player.getNumOfLosGame();
+        String strResGame1 = resourceBundle.getString("strResGame1");
+        String strResGame2 = resourceBundle.getString("strResGame2");
+        String strResGame3 = resourceBundle.getString("strResGame3");
+
+        String resGamePl = strResGame1 + countGame+", "+
+                player.getName() +strResGame2 + player.getNumOfWinGame() + ", "
+                +player.getName() +strResGame3 + player.getNumOfLosGame();
 
         logger.info(resGamePl);
         save.info(resGamePl);
-        save.info("------- End game -------");
+        save.info(resourceBundle.getString("endGame"));
 
     }
 }
